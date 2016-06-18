@@ -3,39 +3,39 @@
   # Unity Datatypes
 
   'Unity (String)':
-    'prefix': 's'
+    'prefix': 'str'
     'body': 'String$1'
 
   'Unity (Boolean)':
-    'prefix': 'b'
+    'prefix': 'boo'
     'body': 'boolean$1'
 
   'Unity (Integer)':
-    'prefix': 'i'
+    'prefix': 'int'
     'body': 'int$1'
 
   'Unity (Float)':
-    'prefix': 'f'
+    'prefix': 'flo'
     'body': 'float$1'
 
   'Unity (GameObject)':
-    'prefix': 'g'
+    'prefix': 'gam'
     'body': 'GameObject$1'
 
   'Unity (Transform)':
-    'prefix': 't'
+    'prefix': 'tra'
     'body': 'Transform$1'
 
   'Unity (Animator)':
-    'prefix': 'a'
+    'prefix': 'anim'
     'body': 'Animator$1'
 
   'Unity (Collider)':
-    'prefix': 'c'
+    'prefix': 'coll'
     'body': 'Collider$1'
 
   'Unity (Collider2D)':
-    'prefix': 'c2'
+    'prefix': 'coll2'
     'body': 'Collider2D $1'
 
   'Unity (Texture)':
