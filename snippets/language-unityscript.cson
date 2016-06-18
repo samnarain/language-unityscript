@@ -149,6 +149,10 @@
     'prefix': 'pvtxta'
     'body': 'public var ${1} : TextAsset;$2'
 
+  'public var (Scene)':
+    'prefix': 'pvscene'
+    'body': 'public var ${1} : Scene;$2'
+
   # Private vars
 
   'private var':
@@ -299,6 +303,10 @@
     'prefix': 'ppvtxta'
     'body': 'private var ${1} : TextAsset;$2'
 
+  'private var (Scene)':
+    'prefix': 'ppvscene'
+    'body': 'private var ${1} : Scene;$2'
+
   # Mecanim Triggers
 
   'SetTrigger':
@@ -323,11 +331,19 @@
     'prefix': 'dl'
     'body': 'Debug.Log("${1}");$2'
 
-  'Pragma Strict':
+  '#Pragma Strict':
     'prefix': 'ps#'
     'body': """
       #pragma strict
       $1
+    """
+
+  '#Unity Editor':
+    'prefix': 'ue#'
+    'body': """
+      #if UNITY_EDITOR
+        $1
+      #endif
     """
 
   # Game Object
@@ -353,16 +369,16 @@
   'Awake':
     'prefix': 'ma'
     'body': """
-      function Awake (${1}) {
-        $2
+      function Awake () {
+        $1
       }
     """
 
   'Start':
     'prefix': 'ms'
     'body': """
-      function Start (${1}) {
-        $2
+      function Start () {
+        $1
       }
     """
 
@@ -370,23 +386,63 @@
   'Update':
     'prefix': 'mu'
     'body': """
-      function Update (${1}) {
-        $2
+      function Update () {
+        $1
       }
     """
 
   'LateUpdate':
     'prefix': 'mlu'
     'body': """
-      function LateUpdate (${1}) {
-        $2
+      function LateUpdate () {
+        $1
       }
     """
 
   'FixedUpdate':
     'prefix': 'mfu'
     'body': """
-      function FixedUpdate (${1}) {
-        $2
+      function FixedUpdate () {
+        $1
+      }
+    """
+
+  'OnDestroy':
+    'prefix': 'mod'
+    'body': """
+      function OnDestroy () {
+        $1
+      }
+    """
+
+  'OnDisable':
+    'prefix': 'mdis'
+    'body': """
+      function OnDisable () {
+        $1
+      }
+    """
+
+  'OnEnable':
+    'prefix': 'men'
+    'body': """
+      function OnEnable () {
+        $1
+      }
+    """
+
+  'OnGUI':
+    'prefix': 'mgui'
+    'body': """
+      function OnGUI () {
+        $1
+      }
+    """
+
+  'OnDrawGizmos':
+    'prefix': 'mgiz'
+    'body': """
+      function OnDrawGizmos () {
+        $1
       }
     """
