@@ -323,6 +323,12 @@
     'prefix': 'dl'
     'body': 'Debug.Log("${1}");$2'
 
+  'Pragma Strict':
+    'prefix': 'ps#'
+    'body': """
+      #pragma strict
+      $1
+    """
 
   # Game Object
 
