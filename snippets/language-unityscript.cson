@@ -1,24 +1,330 @@
 '.source.unityscript':
 
+  # Public vars
+  'public var':
+    'prefix': 'pv'
+    'body': 'public var ${1} : $2; $3'
+
+  'public var (String)':
+    'prefix': 'pvs'
+    'body': 'public var ${1} : String;$2'
+
+  'public var (Float)':
+    'prefix': 'pvf'
+    'body': 'public var ${1} : float;$2'
+
+  'public var (Integer)':
+    'prefix': 'pvi'
+    'body': 'public var ${1} : int;$2'
+
+  'public var (Boolean)':
+    'prefix': 'pvb'
+    'body': 'public var ${1} : boolean;$2'
+
+  'public var (Transform)':
+    'prefix': 'pvtrans'
+    'body': 'public var ${1} : Transform;$2'
+
+  'public var (GameObject)':
+    'prefix': 'pvgame'
+    'body': 'public var ${1} : GameObject;$2'
+
+  'private var (Animator)':
+    'prefix': 'pvanim'
+    'body': 'public var ${1} : Animator;$2'
+
+  'public var (Mesh)':
+    'prefix': 'pvmesh'
+    'body': 'public var ${1} : Mesh;$2'
+
+  'public var (Collider)':
+    'prefix': 'pvcoll'
+    'body': 'public var ${1} : Collider;$2'
+
+  'public var (Camera)':
+    'prefix': 'pvcamera'
+    'body': 'public var ${1} : Camera;$2'
+
+  'public var (Canvas)':
+    'prefix': 'pvcanvas'
+    'body': 'public var ${1} : Canvas;$2'
+
+  'public var (Color)':
+    'prefix': 'pvcolor'
+    'body': 'public var ${1} : Color;$2'
+
+  'public var (Font)':
+    'prefix': 'pvfont'
+    'body': 'public var ${1} : Font;$2'
+
+  'public var (AudioClip)':
+    'prefix': 'pvaudioc'
+    'body': 'public var ${1} : AudioClip;$2'
+
+  'public var (Texture2D)':
+    'prefix': 'pvtex2d'
+    'body': 'public var ${1} : Texture2D;$2'
+
+  'public var (Cloth)':
+    'prefix': 'pvcloth'
+    'body': 'public var ${1} : Cloth;$2'
+
+  'public var (Event)':
+    'prefix': 'pvevent'
+    'body': 'public var ${1} : Event;$2'
+
+  'public var (Vector2)':
+    'prefix': 'pvv2'
+    'body': 'public var ${1} : Vector2;$2'
+
+  'public var (Vector3)':
+    'prefix': 'pvv3'
+    'body': 'public var ${1} : Vector3;$2'
+
+  'public var (Vector4)':
+    'prefix': 'pvv4'
+    'body': 'public var ${1} : Vector4;$2'
+
+  'public var (Collider2D)':
+    'prefix': 'pvcoll2d'
+    'body': 'public var ${1} : Collider2D;$2'
+
+  'public var (LayerMask)':
+    'prefix': 'pvmask'
+    'body': 'public var ${1} : LayerMask;$2'
+
+  'public var (MovieTexture)':
+    'prefix': 'pvmovietex'
+    'body': 'public var ${1} : MovieTexture;$2'
+
+  'public var (Quaternion)':
+    'prefix': 'pvquat'
+    'body': 'public var ${1} : Quaternion;$2'
+
+  'public var (Ray)':
+    'prefix': 'pvray'
+    'body': 'public var ${1} : Ray;$2'
+
+  'public var (Ray2D)':
+    'prefix': 'pvray2d'
+    'body': 'public var ${1} : Ray2D;$2'
+
+  'public var (Renderer)':
+    'prefix': 'pvrend'
+    'body': 'public var ${1} : Renderer;$2'
+
+  'public var (Rigidbody)':
+    'prefix': 'pvrigid'
+    'body': 'public var ${1} : Rigidbody;$2'
+
+  'public var (Rigidbody2D)':
+    'prefix': 'pvrigid2d'
+    'body': 'public var ${1} : Rigidbody2D;$2'
+
+  'public var (Shader)':
+    'prefix': 'pvshader'
+    'body': 'public var ${1} : Shader;$2'
+
+  'public var (Texture)':
+    'prefix': 'pvtex'
+    'body': 'public var ${1} : Texture;$2'
+
+  'public var (RayCastHit)':
+    'prefix': 'pvrayhit'
+    'body': 'public var ${1} : RayCastHit;$2'
+
+  'public var (ParticleSystem)':
+    'prefix': 'pvps'
+    'body': 'public var ${1} : ParticleSystem;$2'
+
+  'public var (WWW)':
+    'prefix': 'pvwww'
+    'body': 'public var ${1} : WWW;$2'
+
+  'public var (TextMesh)':
+    'prefix': 'pvtxtm'
+    'body': 'public var ${1} : TextMesh;$2'
+
+  'public var (TextAsset)':
+    'prefix': 'pvtxta'
+    'body': 'public var ${1} : TextAsset;$2'
+
+  # Private vars
+
+  'private var':
+    'prefix': 'ppv'
+    'body': 'private var ${1} : {2};$3'
+
+  'private var (String)':
+    'prefix': 'ppvs'
+    'body': 'private var ${1} : String;$2'
+
+  'private var (Float)':
+    'prefix': 'ppvf'
+    'body': 'private var ${1} : float;$2'
+
+  'private var (Integer)':
+    'prefix': 'ppvi'
+    'body': 'private var ${1} : int;$2'
+
+  'private var (Boolean)':
+    'prefix': 'ppvb'
+    'body': 'private var ${1} : boolean;$2'
+
+  'private var (Transform)':
+    'prefix': 'ppvtrans'
+    'body': 'private var ${1} : Transform;$2'
+
+  'private var (GameObject)':
+    'prefix': 'ppvgame'
+    'body': 'private var ${1} : GameObject;$2'
+
+  'private var (Animator)':
+    'prefix': 'ppvanim'
+    'body': 'private var ${1} : Animator;$2'
+
+  'private var (Mesh)':
+    'prefix': 'ppvmesh'
+    'body': 'private var ${1} : Mesh;$2'
+
+  'private var (Collider)':
+    'prefix': 'ppvcoll'
+    'body': 'private var ${1} : Collider;$2'
+
+  'private var (Camera)':
+    'prefix': 'ppvcamera'
+    'body': 'private var ${1} : Camera;$2'
+
+  'private var (Canvas)':
+    'prefix': 'ppvcanvas'
+    'body': 'private var ${1} : Canvas;$2'
+
+  'private var (Color)':
+    'prefix': 'ppvcolor'
+    'body': 'private var ${1} : Color;$2'
+
+  'private var (Font)':
+    'prefix': 'ppvfont'
+    'body': 'private var ${1} : Font;$2'
+
+  'private var (AudioClip)':
+    'prefix': 'ppvaudioc'
+    'body': 'private var ${1} : AudioClip;$2'
+
+  'private var (Texture2D)':
+    'prefix': 'ppvtex2d'
+    'body': 'private var ${1} : Texture2D;$2'
+
+  'private var (Cloth)':
+    'prefix': 'ppvcloth'
+    'body': 'private var ${1} : Cloth;$2'
+
+  'private var (Event)':
+    'prefix': 'ppvevent'
+    'body': 'private var ${1} : Event;$2'
+
+  'private var (Vector2)':
+    'prefix': 'ppvv2'
+    'body': 'private var ${1} : Vector2;$2'
+
+  'private var (Vector3)':
+    'prefix': 'ppvv3'
+    'body': 'private var ${1} : Vector3;$2'
+
+  'private var (Vector4)':
+    'prefix': 'ppvv4'
+    'body': 'private var ${1} : Vector4;$2'
+
+  'private var (Collider2D)':
+    'prefix': 'ppvcoll2d'
+    'body': 'private var ${1} : Collider2D;$2'
+
+  'private var (LayerMask)':
+    'prefix': 'ppvmask'
+    'body': 'private var ${1} : LayerMask;$2'
+
+  'private var (MovieTexture)':
+    'prefix': 'ppvmovietex'
+    'body': 'private var ${1} : MovieTexture;$2'
+
+  'private var (Quaternion)':
+    'prefix': 'ppvquat'
+    'body': 'private var ${1} : Quaternion;$2'
+
+  'private var (Ray)':
+    'prefix': 'ppvray'
+    'body': 'private var ${1} : Ray;$2'
+
+  'private var (Ray2D)':
+    'prefix': 'ppvray2d'
+    'body': 'private var ${1} : Ray2D;$2'
+
+  'private var (Renderer)':
+    'prefix': 'ppvrend'
+    'body': 'private var ${1} : Renderer;$2'
+
+  'private var (Rigidbody)':
+    'prefix': 'ppvrigid'
+    'body': 'private var ${1} : Rigidbody;$2'
+
+  'private var (Rigidbody2D)':
+    'prefix': 'ppvrigid2d'
+    'body': 'private var ${1} : Rigidbody2D;$2'
+
+  'private var (Shader)':
+    'prefix': 'ppvshader'
+    'body': 'private var ${1} : Shader;$2'
+
+  'private var (Texture)':
+    'prefix': 'ppvtex'
+    'body': 'private var ${1} : Texture;$2'
+
+  'private var (RayCastHit)':
+    'prefix': 'ppvrayhit'
+    'body': 'private var ${1} : RayCastHit;$2'
+
+  'private var (ParticleSystem)':
+    'prefix': 'ppvps'
+    'body': 'private var ${1} : ParticleSystem;$2'
+
+  'private var (WWW)':
+    'prefix': 'ppvwww'
+    'body': 'private var ${1} : WWW;$2'
+
+  'private var (TextMesh)':
+    'prefix': 'ppvtxtm'
+    'body': 'private var ${1} : TextMesh;$2'
+
+  'private var (TextAsset)':
+    'prefix': 'ppvtxta'
+    'body': 'private var ${1} : TextAsset;$2'
+
+  # Mecanim Triggers
+
   'SetTrigger':
-    'prefix': 'st'
+    'prefix': 'mcst'
     'body': 'SetTrigger("${1}");$2'
 
   'SetInteger':
-    'prefix': 'si'
+    'prefix': 'mcsi'
     'body': 'SetInteger(${1});$2'
 
   'SetFloat':
-    'prefix': 'sf'
+    'prefix': 'mcsf'
     'body': 'SetFloat(${1});$2'
 
   'SetBool':
-    'prefix': 'sb'
+    'prefix': 'mcsb'
     'body': 'SetBool("${1}");$2'
+
+  # Common Dev
 
   'Debug.Log':
     'prefix': 'dl'
     'body': 'Debug.Log("${1}");$2'
+
+
+  # Game Object
 
   'gameObject.GetComponent':
     'prefix': 'gc'
@@ -32,28 +338,14 @@
     'prefix': 'inst'
     'body': 'Instantiate(${1});$2'
 
-  'public var':
-    'prefix': 'pv'
-    'body': 'public var ${1};$2'
-
-
-  'public static var':
-    'prefix': 'psv'
-    'body': 'public static var ${1};$2'
-
-
-  'private var':
-    'prefix': '_pv'
-    'body': 'private var ${1};$2'
-
-
   'destroy':
     'prefix': 'des'
     'body': 'Destroy(${1});$2'
 
+  # Mono Behaviours
 
   'Awake':
-    'prefix': 'ufa'
+    'prefix': 'ma'
     'body': """
       function Awake (${1}) {
         $2
@@ -61,7 +353,7 @@
     """
 
   'Start':
-    'prefix': 'ufs'
+    'prefix': 'ms'
     'body': """
       function Start (${1}) {
         $2
@@ -70,7 +362,7 @@
 
 
   'Update':
-    'prefix': 'ufu'
+    'prefix': 'mu'
     'body': """
       function Update (${1}) {
         $2
@@ -78,7 +370,7 @@
     """
 
   'LateUpdate':
-    'prefix': 'uflu'
+    'prefix': 'mlu'
     'body': """
       function LateUpdate (${1}) {
         $2
@@ -86,7 +378,7 @@
     """
 
   'FixedUpdate':
-    'prefix': 'uffu'
+    'prefix': 'mfu'
     'body': """
       function FixedUpdate (${1}) {
         $2
