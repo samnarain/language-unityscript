@@ -3,47 +3,47 @@
   # Unity Datatypes
 
   'Unity (String)':
-    'prefix': 'str'
+    'prefix': 'xs'
     'body': 'String$1'
 
   'Unity (Boolean)':
-    'prefix': 'boo'
+    'prefix': 'xb'
     'body': 'boolean$1'
 
   'Unity (Integer)':
-    'prefix': 'int'
+    'prefix': 'xi'
     'body': 'int$1'
 
   'Unity (Float)':
-    'prefix': 'flo'
+    'prefix': 'xf'
     'body': 'float$1'
 
   'Unity (GameObject)':
-    'prefix': 'gam'
+    'prefix': 'xg'
     'body': 'GameObject$1'
 
   'Unity (Transform)':
-    'prefix': 'tra'
+    'prefix': 'xt'
     'body': 'Transform$1'
 
   'Unity (Animator)':
-    'prefix': 'anim'
+    'prefix': 'xa'
     'body': 'Animator$1'
 
   'Unity (Collider)':
-    'prefix': 'coll'
+    'prefix': 'xc'
     'body': 'Collider$1'
 
   'Unity (Collider2D)':
-    'prefix': 'coll2'
+    'prefix': 'xc2'
     'body': 'Collider2D $1'
 
   'Unity (Texture)':
-    'prefix': 'te'
+    'prefix': 'xte'
     'body': 'Texture$1'
 
   'Unity (Texture2D)':
-    'prefix': 'te2'
+    'prefix': 'xte2'
     'body': 'Texture2D$1'
 
   # Unity Return Datatypes
