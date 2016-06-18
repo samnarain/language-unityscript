@@ -48,47 +48,47 @@
 
   # Unity Return Datatypes
 
-  'Unity (String)':
+  'as (String)':
     'prefix': 'us'
     'body': ' : String$1'
 
-  'Unity (Boolean)':
+  'as (Boolean)':
     'prefix': 'ub'
     'body': ' : boolean$1'
 
-  'Unity (Integer)':
+  'as (Integer)':
     'prefix': 'ui'
     'body': ' : int$1'
 
-  'Unity (Float)':
+  'as (Float)':
     'prefix': 'uf'
     'body': ' : float$1'
 
-  'Unity (GameObject)':
+  'as (GameObject)':
     'prefix': 'ug'
     'body': ' : GameObject$1'
 
-  'Unity (Transform)':
+  'as (Transform)':
     'prefix': 'ut'
     'body': ' : Transform$1'
 
-  'Unity (Animator)':
+  'as (Animator)':
     'prefix': 'ua'
     'body': ' : Animator$1'
 
-  'Unity (Collider)':
+  'as (Collider)':
     'prefix': 'uc'
     'body': ' : Collider$1'
 
-  'Unity (Collider2D)':
+  'as (Collider2D)':
     'prefix': 'uc2'
     'body': ' : Collider2D $1'
 
-  'Unity (Texture)':
+  'as (Texture)':
     'prefix': 'ute'
     'body': ' : Texture$1'
 
-  'Unity (Texture2D)':
+  'as (Texture2D)':
     'prefix': 'ute2'
     'body': ' : Texture2D$1'
 
@@ -439,6 +439,10 @@
     """
 
   # Game Object
+
+  'gameObject':
+    'prefix': 'go'
+    'body': 'gameObject.${1};$2'
 
   'gameObject.GetComponent':
     'prefix': 'gc'
