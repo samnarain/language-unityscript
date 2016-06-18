@@ -1,6 +1,52 @@
 '.source.unityscript':
 
-  # Unity Datatypes
+# Unity Datatypes
+
+'Unity (String)':
+  'prefix': 's'
+  'body': 'String$1'
+
+'Unity (Boolean)':
+  'prefix': 'b'
+  'body': 'boolean$1'
+
+'Unity (Integer)':
+  'prefix': 'i'
+  'body': 'int$1'
+
+'Unity (Float)':
+  'prefix': 'f'
+  'body': 'float$1'
+
+'Unity (GameObject)':
+  'prefix': 'g'
+  'body': 'GameObject$1'
+
+'Unity (Transform)':
+  'prefix': 't'
+  'body': 'Transform$1'
+
+'Unity (Animator)':
+  'prefix': 'a'
+  'body': 'Animator$1'
+
+'Unity (Collider)':
+  'prefix': 'c'
+  'body': 'Collider$1'
+
+'Unity (Collider2D)':
+  'prefix': 'c2'
+  'body': 'Collider2D $1'
+
+'Unity (Texture)':
+  'prefix': 'te'
+  'body': 'Texture$1'
+
+'Unity (Texture2D)':
+  'prefix': 'te2'
+  'body': 'Texture2D$1'
+
+  # Unity Return Datatypes
 
   'Unity (String)':
     'prefix': 'us'
@@ -19,7 +65,7 @@
     'body': ' : float$1'
 
   'Unity (GameObject)':
-    'prefix': 'us'
+    'prefix': 'ug'
     'body': ' : GameObject$1'
 
   'Unity (Transform)':
@@ -27,7 +73,7 @@
     'body': ' : Transform$1'
 
   'Unity (Animator)':
-    'prefix': 'us'
+    'prefix': 'ua'
     'body': ' : Animator$1'
 
   'Unity (Collider)':
