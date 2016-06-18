@@ -2,47 +2,47 @@
 
   # Unity Datatypes
 
-  'Unity (String)':
+  '(String)':
     'prefix': 'xs'
     'body': 'String$1'
 
-  'Unity (Boolean)':
+  '(Boolean)':
     'prefix': 'xb'
     'body': 'boolean$1'
 
-  'Unity (Integer)':
+  '(Integer)':
     'prefix': 'xi'
     'body': 'int$1'
 
-  'Unity (Float)':
+  '(Float)':
     'prefix': 'xf'
     'body': 'float$1'
 
-  'Unity (GameObject)':
+  '(GameObject)':
     'prefix': 'xg'
     'body': 'GameObject$1'
 
-  'Unity (Transform)':
+  '(Transform)':
     'prefix': 'xt'
     'body': 'Transform$1'
 
-  'Unity (Animator)':
+  '(Animator)':
     'prefix': 'xa'
     'body': 'Animator$1'
 
-  'Unity (Collider)':
+  '(Collider)':
     'prefix': 'xc'
     'body': 'Collider$1'
 
-  'Unity (Collider2D)':
+  '(Collider2D)':
     'prefix': 'xc2'
     'body': 'Collider2D $1'
 
-  'Unity (Texture)':
+  '(Texture)':
     'prefix': 'xte'
     'body': 'Texture$1'
 
-  'Unity (Texture2D)':
+  '(Texture2D)':
     'prefix': 'xte2'
     'body': 'Texture2D$1'
 
