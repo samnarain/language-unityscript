@@ -1,5 +1,51 @@
 '.source.unityscript':
 
+  # Unity Datatypes
+
+  'Unity (String)':
+    'prefix': 'us'
+    'body': ' : String$1'
+
+  'Unity (Boolean)':
+    'prefix': 'ub'
+    'body': ' : boolean$1'
+
+  'Unity (Integer)':
+    'prefix': 'ui'
+    'body': ' : int$1'
+
+  'Unity (Float)':
+    'prefix': 'uf'
+    'body': ' : float$1'
+
+  'Unity (GameObject)':
+    'prefix': 'us'
+    'body': ' : GameObject$1'
+
+  'Unity (Transform)':
+    'prefix': 'ut'
+    'body': ' : Transform$1'
+
+  'Unity (Animator)':
+    'prefix': 'us'
+    'body': ' : Animator$1'
+
+  'Unity (Collider)':
+    'prefix': 'uc'
+    'body': ' : Collider$1'
+
+  'Unity (Collider2D)':
+    'prefix': 'uc2'
+    'body': ' : Collider2D $1'
+
+  'Unity (Texture)':
+    'prefix': 'ute'
+    'body': ' : Texture$1'
+
+  'Unity (Texture2D)':
+    'prefix': 'ute2'
+    'body': ' : Texture2D$1'
+
   # Public vars
   'public var':
     'prefix': 'pv'
