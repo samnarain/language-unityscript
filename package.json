@@ -1,13 +1,11 @@
 {
   "name": "language-unityscript",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "UnityScript language support",
   "engines": {
     "atom": "*"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samnarain/language-unityscript"
