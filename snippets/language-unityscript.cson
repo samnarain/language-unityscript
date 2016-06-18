@@ -1,6 +1,35 @@
 '.source.unityscript':
+
+  'SetTrigger':
+    'prefix': 'st'
+    'body': 'SetTrigger("${1}");$2'
+
+  'SetInteger':
+    'prefix': 'si'
+    'body': 'SetInteger(${1});$2'
+
+  'SetFloat':
+    'prefix': 'sf'
+    'body': 'SetFloat(${1});$2'
+
+  'SetBool':
+    'prefix': 'sb'
+    'body': 'SetBool("${1}");$2'
+
+  'Debug.Log':
+    'prefix': 'dl'
+    'body': 'Debug.Log("${1}");$2'
+
+  'gameObject.GetComponent':
+    'prefix': 'gc'
+    'body': 'GetComponent.<${1}>().;$2'
+
+  'gameObject.transform':
+    'prefix': 'tr'
+    'body': 'transform.${1};$2'
+
   'Instantiate':
-    'prefix': 'ufi'
+    'prefix': 'inst'
     'body': 'Instantiate(${1});$2'
 
   'public var':
@@ -19,7 +48,7 @@
 
 
   'destroy':
-    'prefix': 'dd'
+    'prefix': 'des'
     'body': 'Destroy(${1});$2'
 
 
