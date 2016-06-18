@@ -1,22 +1,7 @@
 # UnityScript for Atom
 
-UnityScript language support for Atom. It uses 99.9% the patterns from language-javascript. It also includes some snippets.
+UnityScript language support for Atom. It uses 99.9% the patterns from language-javascript. Minor changes, such as the use of ToString() instead of toString().  
 
-The snippets are pretty straight forward organized. A commonly used Unity function starts with **uf**, for example to auto-insert a fixed update:
-
-
-````
-uffu <tab>
-````
-
-which will insert the following:
-
-````
-function FixedUpdate () {
-
-}
-````
-
-
+The snippets are pretty straight forward organized. It is not intended to be a code completion package, but to prevent your UnityScript syntax highlighting breaks when Atom considers it *typical* JavaScript (which it is not...). And as I am lazy combined with UnityScript requiring explicit definitions, these snippets were born.
 
 *[Unity](https://www.unity3d.com) is a cross-platform game engine developed by Unity Technologies and used to develop video games for PC, consoles, mobile devices and websites. This is not an official package from Unity.*
