@@ -46,6 +46,26 @@
     'prefix': 'xte2'
     'body': 'Texture2D$1'
 
+  '(Rigidbody)':
+    'prefix': 'xrb'
+    'body': 'Rigidbody$1'
+
+  '(Rigidbody2D)':
+    'prefix': 'xrb2'
+    'body': 'Rigidbody2D$1'
+
+  '(Vector2)':
+    'prefix': 'xv2'
+    'body': 'Vector2$1'
+
+  '(Vector3)':
+    'prefix': 'xv3'
+    'body': 'Vector3$1'
+
+  '(Vector4)':
+    'prefix': 'xv4'
+    'body': 'Vector4$1'
+
   # Unity Return Datatypes
 
   'as (String)':
@@ -91,6 +111,26 @@
   'as (Texture2D)':
     'prefix': 'ute2'
     'body': ' : Texture2D$1'
+
+  'as (Rigidbody)':
+    'prefix': 'urb'
+    'body': ' : Rigidbody$1'
+
+  'as (Rigidbody2D)':
+    'prefix': 'urb2'
+    'body': ' : Rigidbody2D$1'
+
+  'as (Vector2)':
+    'prefix': 'uv2'
+    'body': ' : Vector2$1'
+
+  'as (Vector3)':
+    'prefix': 'uv3'
+    'body': ' : Vector3$1'
+
+  'as (Vector4)':
+    'prefix': 'uv4'
+    'body': ' : Vector4$1'
 
   # Public vars
   'public var':
