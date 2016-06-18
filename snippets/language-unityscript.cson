@@ -1,4 +1,9 @@
 '.source.unityscript':
+  'Instantiate':
+    'prefix': 'ufi'
+    'body': 'Instantiate(${1});$2'
+
+'.source.unityscript':
   'public var':
     'prefix': 'pv'
     'body': 'public var ${1};$2'
@@ -20,7 +25,7 @@
 
 '.source.unityscript':
   'Awake':
-    'prefix': 'fua'
+    'prefix': 'ufa'
     'body': """
       function Awake (${1}) {
         $2
@@ -38,7 +43,7 @@
 
 '.source.unityscript':
   'Update':
-    'prefix': 'ufa'
+    'prefix': 'ufu'
     'body': """
       function Update (${1}) {
         $2
