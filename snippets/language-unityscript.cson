@@ -463,6 +463,10 @@
     'prefix': 'dl'
     'body': 'Debug.Log("${1}");$2'
 
+  'Resources,Load':
+    'prefix': 'rl'
+    'body': 'Resources.Load("${1}");$2'
+
   '#Pragma Strict':
     'prefix': 'ps#'
     'body': """
