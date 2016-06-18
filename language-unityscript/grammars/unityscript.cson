@@ -1,0 +1,856 @@
+'scopeName': 'source.unityscript'
+'name': 'UnityScript'
+'fileTypes': ['js']
+
+
+'firstLineMatch': '^//.*\\b(unityscript)'
+'name': 'UnityScript'
+'patterns': [
+  {
+    'begin': '(?<!\\.)\\b(import)(?!\\s*:)\\b'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.unityscript'
+    'patterns': [
+      {
+        'match': '\\*'
+        'name': 'variable.language.import-all.unityscript'
+      }
+      {
+        'include': '#strings'
+      }
+      {
+        'include': '#comments'
+      }
+      {
+        'match': ','
+        'name': 'meta.delimiter.object.comma.unityscript'
+      }
+    ]
+    'end': '(?=;|$)'
+    'name': 'meta.import.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(super|this)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(super|this)(?=\\s*:)'
+    'captures':
+      '1':
+        'name': 'variable.language.unityscript'
+      '2':
+        'name': 'variable.language.unityscript'
+  }
+  {
+    'begin': '(?=\\b(constructor)\\s*)'
+    'end': '(?<=})'
+    'patterns': [
+      {
+        'include': '#comments'
+      }
+      {
+        'include': '#function_body'
+      }
+      {
+        'begin': '\\G'
+        'end': '(?<=\\))'
+        'name': 'meta.function.unityscript'
+        'patterns': [
+          {
+            'match': '\\b(constructor)\\s*'
+            'name': 'entity.name.function.constructor.unityscript'
+          }
+          {
+            'include': '#function_innards'
+          }
+        ]
+      }
+    ]
+  }
+  {
+    'begin': '''(?x)
+      (?=
+        (?!
+          (break|case|catch|continue|do|else|finally|for|function|if|export|
+          import|package|return|switch|throw|try|while|with)
+          [\\s\\(]
+        )
+        \\b[a-zA-Z_$][\\w$]*
+        \\s*\\(\\s*
+           (("[^"]*")|(\\'[^\\']*\\')|((?!"|\\'|\\(|\\)).))*
+        \\)\\s*\\{
+      )
+    '''
+    'end': '(?<=})'
+    'patterns': [
+      {
+        'include': '#comments'
+      }
+      {
+        'include': '#function_body'
+      }
+      {
+        'begin': '\\G'
+        'end': '(?<=\\))'
+        'name': 'meta.function.method.definition.unityscript'
+        'patterns': [
+          {
+            'match': '\\b([a-zA-Z_$][\\w$]*)'
+            'name': 'entity.name.function.unityscript'
+          }
+          {
+            'include': '#function_params'
+          }
+        ]
+      }
+    ]
+  }
+  {
+    'begin': '''(?x)
+      (?=
+        (?<![A-Za-z0-9])
+        ((\\(([^\\(\\)]*)?\\))|[\\w$]+)
+        \\s*=>
+      )
+    '''
+    'end': '''(?x)
+      (?<=})|
+      ((?!
+        \\s*{|
+        \\G\\(|
+        \\G[\\w$]+|
+        \\s*/\\*|\\s*//
+      )(?=\\s*\\S))
+    '''
+    'patterns': [
+      {
+        'include': '#comments'
+      }
+      {
+        'include': '#function_body'
+      }
+      {
+        'begin': '\\G'
+        'end': '(?<=(=>))'
+        'name': 'meta.function.arrow.unityscript'
+        'patterns': [
+          {
+            'include': '#arrow_function_innards'
+          }
+        ]
+      }
+    ]
+  }
+  {
+    'match': '''(?x)
+      \\b(class)
+      (?:
+        (?:\\s+(extends)\\s+([a-zA-Z_$][\\w$]*))
+        |
+        (?:
+          (?:\\s+([a-zA-Z_$][\\w$]*))
+          (?:\\s+(extends)\\s+([a-zA-Z_$][\\w$]*))?
+        )
+      )
+    '''
+    'captures':
+      '1':
+        'name': 'storage.type.class.unityscript'
+      '2':
+        'name': 'storage.modifier.unityscript'
+      '3':
+        'name': 'entity.other.inherited-class.unityscript'
+      '4':
+        'name': 'entity.name.type.class.unityscript'
+      '5':
+        'name': 'storage.modifier.unityscript'
+      '6':
+        'name': 'entity.other.inherited-class.unityscript'
+    'name': 'meta.class.unityscript'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'keyword.operator.new.unityscript'
+      '2':
+        'name': 'entity.name.type.instance.unityscript'
+    'match': '(new)\\s+(\\$?\\w+(?:\\.\\w*)?)'
+    'name': 'meta.class.instance.constructor'
+  }
+  {
+    'begin': '(?<![\\w$])Debug(?![\\w$]|\\s*:)'
+    'beginCaptures':
+      '0':
+        'name': 'entity.name.type.object.console.unityscript'
+    'end': '''(?x)
+      (?<=\\)) | (?=
+        (?! (\\s*//)|(\\s*/\\*)|(\\s*(\\.)\\s*
+          (Log|LogError|LogWarning|Assert|Break)
+          \\s*\\(
+        )) \\s*\\S
+      )
+    '''
+    'patterns': [
+      {
+        'include': '#comments'
+      }
+      {
+        'begin': '\\s*(\\.)\\s*(\\w+)\\s*(?=\\()'
+        'beginCaptures':
+          '1':
+            'name': 'meta.delimiter.method.period.unityscript'
+          '2':
+            'name': 'support.function.console.unityscript'
+        'end': '(?<=\\))'
+        'name': 'meta.method-call.unityscript'
+        'patterns': [
+          {
+            'include': '#arguments'
+          }
+        ]
+      }
+    ]
+  }
+  {
+    # Math
+    'begin': '(?<![\\w$])Mathf(?![\\w$]|\\s*:)'
+    'beginCaptures':
+      '0':
+        'name': 'support.class.math.unityscript'
+    'end': '''(?x)
+      (?<=E|LN10|LN2|LOG10E|LOG2E|PI|SQRT1_2|SQRT2|\\)
+      ) | (?=
+        (?! (\\s*//)|(\\s*/\\*)|(\\s*\\.\\s* (
+          ((Abs|Acos|Approximately|Asin|Atan|Atan2|Ceil|CeilToInt|Clamp|Clamp01|Cos|DeltaAngle|Exp|
+          Floor|FloorToInt|GammaToLinearSpace|InverseLerp|IsPowerOfTwo|Lerp|LerpAngle|LerpUnclamped|
+          LinearToGammaSpace|Log|Log10|Max|Min|MoveTowards|MoveTowardsAngle|NextPowerOfTwo|PerlinNoise|
+          PingPong|Pow|Repeat|Round|RoundToInt|Round|Sign|Sin|SmoothDamp|SmoothDampAngle|SmoothStep|
+          Sqrt|Tan)\\s*\\(
+          ) | (E|LN10|LN2|LOG10E|LOG2E|PI|SQRT1_2|SQRT2)(?!\\s*[\\w$(]))
+        )) \\s*\\S
+      )
+    '''
+    'patterns': [
+      {
+        'include': '#comments'
+      }
+      {
+        'begin': '\\s*(\\.)\\s*(\\w+)\\s*(?=\\()'
+        'beginCaptures':
+          '1':
+            'name': 'meta.delimiter.method.period.unityscript'
+          '2':
+            'name': 'support.function.math.unityscript'
+        'end': '(?<=\\))'
+        'name': 'meta.method-call.unityscript'
+        'patterns': [
+          {
+            'include': '#arguments'
+          }
+        ]
+      }
+      {
+        'match': '\\s*(\\.)\\s*(\\w+)\\b'
+        'captures':
+          '1':
+            'name': 'meta.delimiter.property.period.unityscript'
+          '2':
+            'name': 'support.constant.property.math.unityscript'
+      }
+    ]
+  }
+  {
+    'include': '#strings'
+  }
+  {
+    'include': '#comments'
+  }
+  {
+    'match': '(?<!\\.)\\b(class|enum|function|interface)(?!\\s*:)\\b'
+    'name': 'storage.type.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(extends|implements|private|protected|public|static)(?!\\s*:)\\b'
+    'name': 'storage.modifier.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(var)(?!\\s*:)\\b'
+    'name': 'storage.type.var.unityscript'
+  }
+
+  {
+    'begin': '(?<!\\.)\\b(const)(?!\\s*:)\\b'
+    'beginCaptures':
+      '1':
+        'name': 'storage.modifier.unityscript'
+    'end': '(\\bof\\b|\\bin\\b)|(;)|(=)|(?<![,{])\\n'
+    'endCaptures':
+      '1':
+        'name': 'keyword.operator.$1.unityscript'
+      '2':
+        'name': 'punctuation.terminator.statement.unityscript'
+      '3':
+        'name': 'keyword.operator.assignment.unityscript'
+    'patterns': [
+      {
+        'match': '([$_a-zA-Z][$_a-zA-Z0-9]*)\\s*(:)\\s*([$_a-zA-Z][$_a-zA-Z0-9]*)?'
+        'captures':
+          '2':
+            'name': 'keyword.operator.assignment.unityscript'
+          '3':
+            'name': 'constant.other.unityscript'
+      }
+      {
+        'match': '([$_a-zA-Z][$_a-zA-Z0-9]*)'
+        'captures':
+          '1':
+            'name': 'constant.other.unityscript'
+      }
+      {
+        'match': '\\.\\.\\.'
+        'name': 'keyword.operator.spread.unityscript'
+      }
+      {
+        'match': ','
+        'name': 'meta.delimiter.object.comma.unityscript'
+      }
+      {
+        'match': '\\(|\\)'
+        'name': 'meta.brace.round.unityscript'
+      }
+      {
+        'match': '{|}'
+        'name': 'meta.brace.curly.unityscript'
+      }
+      {
+        'match': '\\[|\\]'
+        'name': 'meta.brace.square.unityscript'
+      }
+      {
+        'include': '#comments'
+      }
+    ]
+  }
+  {
+    'match': '(?<!\\.)\\b(yield)(?!\\s*:)\\b(?:\\s*(\\*))?|(?<=\\?)(?:\\s*)(yield)(?=\\s*:)',
+    'captures':
+      '1':
+        'name': 'keyword.control.unityscript'
+      '2':
+        'name': 'storage.modifier.unityscript'
+      '3':
+        'name': 'keyword.control.unityscript'
+      '4':
+        'name': 'storage.modifier.unityscript'
+    'name': 'meta.control.yield.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(break|case|catch|continue|do|else|finally|for|if|import|from|package|return|switch|throw|try|while|with)(?!\\s*:)\\b'
+    'name': 'keyword.control.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(delete|in|of|instanceof|new|typeof|transform|gameObject)(?!\\s*:)\\b'
+    'name': 'keyword.operator.$1.unityscript'
+  }
+  {
+    'match': '\\.\\.\\.'
+    'name': 'keyword.operator.spread.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(true|false)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(true|false)(?=\\s*:)'
+    'captures':
+      '1':
+        'name': 'constant.language.boolean.$1.unityscript'
+      '2':
+        'name': 'constant.language.boolean.$2.unityscript'
+  }
+  {
+    'match': '(?<!\\.)\\b(null)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)(null)(?=\\s*:)'
+    'captures':
+      '1':
+        'name': 'constant.language.null.unityscript'
+      '2':
+        'name': 'constant.language.null.unityscript'
+  }
+  {
+    'match': '(?<!\\$)\\b(Anchor|Applet|Area|Array|Transform|GameObject|Scene|Texture2D|Rect|Dictionary|List|Boolean|Button|Checkbox|Date|document|event|FileUpload|Form|Frame|Function|Hidden|History|Image|JavaArray|JavaClass|JavaObject|JavaPackage|java|Layer|Link|Location|Map|MimeType|Number|navigator|netscape|Object|Option|Packages|Password|Plugin|performance|Radio|RegExp|Reset|Select|Set|String|Style|Submit|Symbol|screen|sun|Text|Textarea|WeakMap|WeakSet|window|XMLHttpRequest)\\b'
+    'name': 'support.class.unityscript'
+  }
+  {
+    'match': '\\b(Infinity|NaN|undefined)\\b'
+    'name': 'constant.language.unityscript'
+  }
+  {
+    'begin': '(?<=[\\[=(?:+,!]|^|return|=>|&&|\\|\\|)\\s*(/)(?![/*+{}?])(?=.*/)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.definition.string.begin.unityscript'
+    'end': '(/)[gimuy]*'
+    'endCaptures':
+      '1':
+        'name': 'punctuation.definition.string.end.unityscript'
+    'name': 'string.regexp.unityscript'
+    'patterns': [
+      {
+        'include': 'source.js.regexp'
+      }
+    ]
+  }
+  {
+    'include': '#operators'
+  }
+  {
+    'include': '#method_calls'
+  }
+  {
+    'include': '#function_calls'
+  }
+  {
+    'include': '#numbers'
+  }
+  {
+    'include': '#objects'
+  }
+  {
+    'include': '#properties'
+  }
+  {
+    'match': '(?<!\\.)\\b([A-Z][A-Z0-9_]+)(?!\\s*:)\\b|(?<=\\?)(?:\\s*)([A-Z][A-Z0-9_]+)(?=\\s*:)'
+    'captures':
+      '1':
+        'name': 'constant.other.unityscript'
+      '2':
+        'name': 'constant.other.unityscript'
+  }
+  {
+    'match': '(?<!\\$)\\b[0-9]+[\\w$]*'
+    'name': 'invalid.illegal.identifier.unityscript'
+  }
+  {
+    'match': '\\;'
+    'name': 'punctuation.terminator.statement.unityscript'
+  }
+  {
+    'match': ','
+    'name': 'meta.delimiter.object.comma.unityscript'
+  }
+  {
+    'match': '\\.'
+    'name': 'meta.delimiter.method.period.unityscript'
+  }
+  {
+    'captures':
+      '1':
+        'name': 'punctuation.section.scope.begin.unityscript'
+      '2':
+        'name': 'punctuation.section.scope.end.unityscript'
+    'match': '({)(})'
+  }
+  {
+    'begin': '{'
+    'beginCaptures':
+      '0':
+        'name': 'meta.brace.curly.unityscript'
+    'end': '}'
+    'endCaptures':
+      '0':
+        'name': 'meta.brace.curly.unityscript'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'begin': '\\('
+    'beginCaptures':
+      '0':
+        'name': 'meta.brace.round.unityscript'
+    'end': '\\)'
+    'endCaptures':
+      '0':
+        'name': 'meta.brace.round.unityscript'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'match': '\\[|\\]'
+    'name': 'meta.brace.square.unityscript'
+  }
+]
+'repository':
+  'numbers':
+    'patterns': [
+      {
+        'match': '\\b(?<!\\$)0(x|X)[0-9a-fA-F]+\\b(?!\\$)'
+        'name': 'constant.numeric.hex.unityscript'
+      }
+      {
+        'match': '\\b(?<!\\$)0(b|B)[01]+\\b(?!\\$)'
+        'name': 'constant.numeric.binary.unityscript'
+      }
+      {
+        'match': '\\b(?<!\\$)0(o|O)?[0-7]+\\b(?!\\$)'
+        'name': 'constant.numeric.octal.unityscript'
+      }
+      {
+        'match': '''(?x)
+          (?<!\\$)(?:
+            (?:\\b[0-9]+(\\.)[0-9]+[eE][+-]?[0-9]+\\b)| # 1.1E+3
+            (?:\\b[0-9]+(\\.)[eE][+-]?[0-9]+\\b)|       # 1.E+3
+            (?:\\B(\\.)[0-9]+[eE][+-]?[0-9]+\\b)|       # .1E+3
+            (?:\\b[0-9]+[eE][+-]?[0-9]+\\b)|            # 1E+3
+            (?:\\b[0-9]+(\\.)[0-9]+\\b)|                # 1.1
+            (?:\\b[0-9]+(\\.)\\B)|                      # 1.
+            (?:\\B(\\.)[0-9]+\\b)|                      # .1
+            (?:\\b[0-9]+\\b(?!\\.))                     # 1
+          )(?!\\$)
+        '''
+        'captures':
+          '0':
+            'name': 'constant.numeric.decimal.unityscript'
+          '1':
+            'name': 'meta.delimiter.decimal.period.unityscript'
+          '2':
+            'name': 'meta.delimiter.decimal.period.unityscript'
+          '3':
+            'name': 'meta.delimiter.decimal.period.unityscript'
+          '4':
+            'name': 'meta.delimiter.decimal.period.unityscript'
+          '5':
+            'name': 'meta.delimiter.decimal.period.unityscript'
+          '6':
+            'name': 'meta.delimiter.decimal.period.unityscript'
+      }
+    ]
+  'operators':
+    'patterns': [
+      {
+        'match': '%=|\\+=|-=|\\*=|(?<!\\()/='
+        'name': 'keyword.operator.assignment.compound.unityscript'
+      }
+      {
+        'match': '&=|\\^=|<<=|>>=|>>>=|\\|='
+        'name': 'keyword.operator.assignment.compound.bitwise.unityscript'
+      }
+      {
+        'match': '!==|!=|<=|>=|===|==|<|>'
+        'name': 'keyword.operator.comparison.unityscript'
+      }
+      {
+        'match': '&&|!|\\|\\|'
+        'name': 'keyword.operator.logical.unityscript'
+      }
+      {
+        'match': '&|\\||\\^|~'
+        'name': 'keyword.operator.bitwise.unityscript'
+      }
+      {
+        'match': '\\?|:'
+        'name': 'keyword.operator.unityscript'
+      }
+      {
+        'match': '='
+        'name': 'keyword.operator.assignment.unityscript'
+      }
+      {
+        'match': '--'
+        'name': 'keyword.operator.decrement.unityscript'
+      }
+      {
+        'match': '\\+\\+'
+        'name': 'keyword.operator.increment.unityscript'
+      }
+      {
+        'match': '%|\\*|/|-|\\+'
+        'name': 'keyword.operator.unityscript'
+      }
+    ]
+  'strings':
+    'patterns': [
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.unityscript'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.unityscript'
+        'name': 'string.quoted.single.unityscript'
+        'patterns': [
+          {
+            'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
+            'name': 'constant.character.escape.unityscript'
+          }
+          {
+            'match': "[^']*[^\\n\\r'\\\\]$"
+            'name': 'invalid.illegal.string.unityscript'
+          }
+        ]
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.unityscript'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.unityscript'
+        'name': 'string.quoted.double.unityscript'
+        'patterns': [
+          {
+            'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
+            'name': 'constant.character.escape.unityscript'
+          }
+          {
+            'match': '[^"]*[^\\n\\r"\\\\]$'
+            'name': 'invalid.illegal.string.unityscript'
+          }
+        ]
+      }
+    ]
+  'function_params':
+    'patterns': [
+      {
+        'begin': '\\('
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.parameters.begin.bracket.round.unityscript'
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.parameters.end.bracket.round.unityscript'
+        'name': 'meta.parameters.unityscript'
+        'patterns': [
+          {
+            'match': '(\\.\\.\\.)([a-zA-Z_$][\\w$]*)'
+            'captures':
+              '1':
+                'name': 'keyword.operator.spread.unityscript'
+              '2':
+                'name': 'variable.parameter.rest.function.unityscript'
+          }
+          {
+            'include': '$self'
+          }
+          {
+            'match': '[a-zA-Z_$][\\w$]*'
+            'name': 'variable.parameter.function.unityscript'
+          }
+        ]
+      }
+    ]
+  'function_body':
+    'patterns': [
+      {
+        'begin': '{'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.function.body.begin.bracket.curly.unityscript'
+        'end': '}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.function.body.end.bracket.curly.unityscript'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+    ]
+  'function_innards':
+    'patterns': [
+      {
+        'match': '[a-zA-Z_$][\\w$]*(?=\\s*\\()'
+        'name': 'entity.name.function.unityscript'
+      }
+      {
+        'include': '#function_params'
+      }
+      {
+        'include': '#comments'
+      }
+    ]
+  'arguments':
+    'patterns': [
+      {
+        'begin': '\\('
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.arguments.begin.bracket.round.unityscript'
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.arguments.end.bracket.round.unityscript'
+        'name': 'meta.arguments.unityscript'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+    ]
+  'method_calls':
+    'patterns': [
+      {
+        'begin': '(\\.)\\s*([\\w$]+)\\s*(?=\\()'
+        'beginCaptures':
+          '1':
+            'name': 'meta.delimiter.method.period.unityscript'
+          '2':
+            'patterns': [
+              {
+                'match': '''(?x)
+                  \\bon(Debug|Instantiate|InvokeRepeating)\\b
+                '''
+                'name': 'support.function.methodcalls.unityscript'
+              }
+              {
+                'match': '''(?x)
+                  \\b(Find)\\b
+                '''
+                'name': 'support.function.unityscript'
+              }
+              {
+                'match': "[a-zA-Z_$][\\w$]*"
+                'name': 'entity.name.function.unityscript'
+              }
+              {
+                'match': '\\d[\\w$]*'
+                'name': 'invalid.illegal.identifier.unityscript'
+              }
+            ]
+        'end': '(?<=\\))'
+        'name': 'meta.method-call.unityscript'
+        'patterns': [
+          {
+            'include': '#arguments'
+          }
+        ]
+      }
+    ]
+  'function_calls':
+    'patterns': [
+      {
+        'begin': '([\\w$]+)\\s*(?=\\()'
+        'beginCaptures':
+          '1':
+            'patterns': [
+              {
+                'match': '''(?x)
+                  \\b(isNaN|isFinite|eval|uneval|parseInt|parseFloat|decodeURI|
+                  decodeURIComponent|encodeURI|encodeURIComponent|escape|unescape|
+                  require|set(Interval|Timeout)|clear(Interval|Timeout))\\b
+                '''
+                'name': 'support.function.unityscript'
+              }
+              {
+                'match': "[a-zA-Z_$][\\w$]*"
+                'name': 'entity.name.function.unityscript'
+              }
+              {
+                'match': '\\d[\\w$]*'
+                'name': 'invalid.illegal.identifier.unityscript'
+              }
+            ]
+        'end': '(?<=\\))'
+        'name': 'meta.function-call.unityscript'
+        'patterns': [
+          {
+            'include': '#arguments'
+          }
+        ]
+      }
+    ]
+  'objects':
+    'patterns': [
+      {
+        'match': '[A-Z][A-Z0-9_$]*(?=\\s*\\.\\s*[a-zA-Z_$]\\w*)'
+        'name': 'constant.other.object.unityscript'
+      }
+      {
+        'match': '[a-zA-Z_$][\\w$]*(?=\\s*\\.\\s*[a-zA-Z_$]\\w*)'
+        'name': 'variable.other.object.unityscript'
+      }
+    ]
+  'properties':
+    'patterns': [
+      {
+        'match': '(\\.)\\s*([A-Z][A-Z0-9_$]*\\b\\$*)(?=\\s*\\.\\s*[a-zA-Z_$]\\w*)'
+        'captures':
+          '1':
+            'name': 'meta.delimiter.property.period.unityscript'
+          '2':
+            'name': 'constant.other.object.property.unityscript'
+      }
+      {
+        'match': '(\\.)\\s*(\\$*[a-zA-Z_$][\\w$]*)(?=\\s*\\.\\s*[a-zA-Z_$]\\w*)'
+        'captures':
+          '1':
+            'name': 'meta.delimiter.property.period.unityscript'
+          '2':
+            'name': 'variable.other.object.property.unityscript'
+      }
+      {
+        'match': '(\\.)\\s*([A-Z][A-Z0-9_$]*\\b\\$*)'
+        'captures':
+          '1':
+            'name': 'meta.delimiter.property.period.unityscript'
+          '2':
+            'name': 'constant.other.property.unityscript'
+      }
+      {
+        'match': '(\\.)\\s*(\\$*[a-zA-Z_$][\\w$]*)'
+        'captures':
+          '1':
+            'name': 'meta.delimiter.property.period.unityscript'
+          '2':
+            'name': 'variable.other.property.unityscript'
+      }
+      {
+        'match': '(\\.)\\s*([0-9][\\w$]*)'
+        'captures':
+          '1':
+            'name': 'meta.delimiter.property.period.unityscript'
+          '2':
+            'name': 'invalid.illegal.identifier.unityscript'
+      }
+    ]
+  'comments':
+    'patterns': [
+      {
+        'begin': '/\\*\\*(?!/)'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.unityscript'
+        'end': '\\*/'
+        'name': 'comment.block.documentation.unityscript'
+      }
+      {
+        'begin': '/\\*'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.unityscript'
+        'end': '\\*/'
+        'name': 'comment.block.unityscript'
+      }
+      {
+        'begin': '(^[ \\t]+)?(?=//)'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.whitespace.comment.leading.unityscript'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '//'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.comment.unityscript'
+            'end': '\\n'
+            'name': 'comment.line.double-slash.unityscript'
+          }
+        ]
+      }
+    ]
