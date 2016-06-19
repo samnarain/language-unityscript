@@ -14,7 +14,7 @@ Right. See all snippets in the Settings of this package - *or be a hero* and see
 
 ````x```` is the first character to type to have a sad form of code completion on common Unity data types.
 
-````u```` is the first character to type to have those data types be prefixed by a comma.
+````u```` is the first character to type to have those data types be prefixed by a colon.
 
 ````pv```` are first to type to have those data types be declared public.
 

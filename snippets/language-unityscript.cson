@@ -70,47 +70,47 @@
 
   'as (String)':
     'prefix': 'us'
-    'body': ' : String$1'
+    'body': ': String$1'
 
   'as (Boolean)':
     'prefix': 'ub'
-    'body': ' : boolean$1'
+    'body': ': boolean$1'
 
   'as (Integer)':
     'prefix': 'ui'
-    'body': ' : int$1'
+    'body': ': int$1'
 
   'as (Float)':
     'prefix': 'uf'
-    'body': ' : float$1'
+    'body': ': float$1'
 
   'as (GameObject)':
     'prefix': 'ug'
-    'body': ' : GameObject$1'
+    'body': ': GameObject$1'
 
   'as (Transform)':
     'prefix': 'ut'
-    'body': ' : Transform$1'
+    'body': ': Transform$1'
 
   'as (Animator)':
     'prefix': 'ua'
-    'body': ' : Animator$1'
+    'body': ': Animator$1'
 
   'as (Collider)':
     'prefix': 'uc'
-    'body': ' : Collider$1'
+    'body': ': Collider$1'
 
   'as (Collider2D)':
     'prefix': 'uc2'
-    'body': ' : Collider2D $1'
+    'body': ': Collider2D $1'
 
   'as (Texture)':
     'prefix': 'ute'
-    'body': ' : Texture$1'
+    'body': ': Texture$1'
 
   'as (Texture2D)':
     'prefix': 'ute2'
-    'body': ' : Texture2D$1'
+    'body': ': Texture2D$1'
 
   'as (Rigidbody)':
     'prefix': 'urb'
@@ -118,19 +118,19 @@
 
   'as (Rigidbody2D)':
     'prefix': 'urb2'
-    'body': ' : Rigidbody2D$1'
+    'body': ': Rigidbody2D$1'
 
   'as (Vector2)':
     'prefix': 'uv2'
-    'body': ' : Vector2$1'
+    'body': ': Vector2$1'
 
   'as (Vector3)':
     'prefix': 'uv3'
-    'body': ' : Vector3$1'
+    'body': ': Vector3$1'
 
   'as (Vector4)':
     'prefix': 'uv4'
-    'body': ' : Vector4$1'
+    'body': ': Vector4$1'
 
   # Public vars
   'public var':
