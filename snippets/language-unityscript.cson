@@ -66,6 +66,84 @@
     'prefix': 'xv4'
     'body': 'Vector4$1'
 
+  '(RaycastHit)':
+    'prefix': 'xrh'
+    'body': 'RaycastHit$1'
+
+  # Unity local variables
+
+  'local var':
+    'prefix': 'lv'
+    'body': 'var ${1} : $2; $3'
+
+  '(String)':
+    'prefix': 'ls'
+    'body': 'var $1 : String;$2'
+
+  '(Boolean)':
+    'prefix': 'lb'
+    'body': 'var $1 : boolean;$2'
+
+  '(Integer)':
+    'prefix': 'li'
+    'body': 'var $1 : int;$2'
+
+  '(Float)':
+    'prefix': 'lf'
+    'body': 'var $1 : float;$2'
+
+  '(GameObject)':
+    'prefix': 'lg'
+    'body': 'var $1 : GameObject;$2'
+
+  '(Transform)':
+    'prefix': 'lt'
+    'body': 'var $1 : Transform;$2'
+
+  '(Animator)':
+    'prefix': 'la'
+    'body': 'var $1 : Animator;$2'
+
+  '(Collider)':
+    'prefix': 'lc'
+    'body': 'var $1 : Collider;$2'
+
+  '(Collider2D)':
+    'prefix': 'lc2'
+    'body': 'var $1 : Collider2D;$2'
+
+  '(Texture)':
+    'prefix': 'lte'
+    'body': 'var $1 : Texture;$2'
+
+  '(Texture2D)':
+    'prefix': 'lte2'
+    'body': 'var $1 : Texture2D;$2'
+
+  '(Rigidbody)':
+    'prefix': 'lrb'
+    'body': 'var $1 : Rigidbody;$2'
+
+  '(Rigidbody2D)':
+    'prefix': 'lrb2'
+    'body': 'var $1 : Rigidbody2D;$2'
+
+  '(Vector2)':
+    'prefix': 'lv2'
+    'body': 'var $1 : Vector2;$2'
+
+  '(Vector3)':
+    'prefix': 'lv3'
+    'body': 'var $1 : Vector3;$2'
+
+  '(Vector4)':
+    'prefix': 'lv4'
+    'body': 'var $1 : Vector4;$2'
+
+  '(RaycastHit)':
+    'prefix': 'lrh'
+    'body': 'var $1 : RaycastHit;$2'
+
   # Unity Return Datatypes
 
   'as (String)':
@@ -131,6 +209,10 @@
   'as (Vector4)':
     'prefix': 'uv4'
     'body': ': Vector4$1'
+
+  'as (RayCastHit)':
+    'prefix': 'urh'
+    'body': ': RayCastHit'
 
   # Public vars
   'public var':
