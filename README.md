@@ -1,12 +1,13 @@
 # UnityScript for Atom
 
-UnityScript language support for Atom. It uses 99.9% the patterns from language-javascript. Minor changes, such as the use of ToString() instead of toString().  
+UnityScript language support for Atom. It uses 99.8% the patterns from language-javascript. Minor changes, such as the use of ToString() instead of toString().
 
 The snippets are pretty straight forward organized. It is not intended to be a code completion package, but to prevent your UnityScript syntax highlighting breaks when Atom considers it as *everyday* JavaScript (which it is not...). And as I am lazy combined with UnityScript requiring explicit definitions, these snippets were born.
 
 ### It is bare bones.
 
-The UnityScript language is a fun language. It is full of secrets I do not know.
+UnityScript language is a great language. UnityScript is a proprietary language, and it doesn't follow any concrete specification; it is modified at the will of the Unity developers. Let's say it *feels* like JavaScript.
+
 
 ### Less talk. Work, work!
 
@@ -37,9 +38,14 @@ You should have fun with ````go````, ````tr````, ````gc```` and ````dl````. Like
 - shortcut snippets for GameObject (transform, GetComponent, Instantiate, Destroy.. etc.)
 - shortcut snippets for common MonoBehaviour (Awake, Start, Update, FixedUpdate, LateUpdate.. etc.)
 
+### Changes
+
+* Added some additional Regex to have the floating point suffix not going red in Atom.
+
 ### This stinks
 
 Feel free to change, fork or whatever makes you happy. I didn't found anything in the package list when I started
-on this. Would love to see improvements here and there, as Atom is just my favorite editor for any coding.
+on this. Would love to see improvements here and there, as Atom is just my favorite editor for any kind of coding.
+It is not that I believe MonoDevelop sucks, but that Atom rules.
 
-*[Unity](https://www.unity3d.com) is a cross-platform game engine developed by Unity Technologies and used to develop video games for PC, consoles, mobile devices and websites. This is not an official package from Unity.*
+*[Unity](https://www.unity3d.com) is a cross-platform game engine developed by Unity Technologies and used to develop video games for OSX, Linux, Windows, consoles, mobile devices and websites. This is not an official package from Unity.*
